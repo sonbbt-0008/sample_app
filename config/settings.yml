@@ -3,6 +3,7 @@ email_length: 250
 password_min_length: 6
 avatar_size: 80
 avatar_small: 50
+avatar_XS: 30
 checked: "1"
 default_from_email: "noreply@example.com"
 address: "smtp.gmail.com"
