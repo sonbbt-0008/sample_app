@@ -5,10 +5,14 @@ class UsersController < ApplicationController
   before_action :admin_user, only: %i(destroy)
 
   def index
-    @users = User.paginate page: params[:page]
+    @users = User.paginate page: params[:page],
+      per_page: Settings.index_per_page
   end
 
-  def show; end
+  def show
+    @microposts = @user.microposts.descending.paginate(page: params[:page],
+      per_page: Settings.index_per_page)
+  end
 
   def new
     @user = User.new
@@ -49,13 +53,6 @@ class UsersController < ApplicationController
 
   def correct_user
     redirect_to root_url unless current_user?(@user)
-  end
-
-  def logged_in_user
-    return if logged_in?
-    store_location
-    flash[:danger] = t "require_login"
-    redirect_to login_url
   end
 
   def load_user

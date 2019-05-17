@@ -33,6 +33,8 @@
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+config/application.yml
 
-# Ignore application configuration
-/config/application.yml
+# Ignore uploaded files
+# Ignore uploaded test images.
+/public/uploads

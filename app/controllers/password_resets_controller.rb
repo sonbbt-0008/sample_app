@@ -20,15 +20,11 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
-    if params[:user][:password].blank?
-      @user.errors.add :password, t("password_empty")
-      render :edit
-    elsif @user.update_attributes user_params
+    if @user.update_attributes user_params
       log_in @user
       flash[:success] = t "password_reset"
       redirect_to @user
     else
-      flash[:danger] = t "something_wrong"
       render :edit
     end
   end
