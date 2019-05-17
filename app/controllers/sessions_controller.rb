@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
   def login_redirect user
     log_in user
     params[:session][:remember_me] == Settings.checked ? remember(user) : forget(user)
-    redirect_to user
+    redirect_back_or user
   end
 end
