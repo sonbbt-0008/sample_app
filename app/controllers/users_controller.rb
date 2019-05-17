@@ -17,9 +17,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = I18n.t "static_pages.home.welcome"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = t "check_email_announce"
+      redirect_to root_url
     else
       render :new
     end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    flash[:success] =  @user.destroy ? t("user_deleted") : t("delete_failed")
+    flash[:success] = @user.destroy ? t("user_deleted") : t("delete_failed")
     redirect_to users_url
   end
 
