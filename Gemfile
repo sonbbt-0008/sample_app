@@ -7,12 +7,14 @@ gem "bcrypt"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap-sass", "3.3.7"
 gem "bootstrap-will_paginate", "1.0.0"
+gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "faker"
 gem "figaro"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "mini_magick"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.3"
 gem "rails-controller-testing"
@@ -38,6 +40,11 @@ group :test do
   gem "capybara", ">= 2.15"
   gem "chromedriver-helper"
   gem "selenium-webdriver"
+end
+
+group :production do
+  gem "fog", "1.42"
+  gem "pg",  "0.20.0"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
