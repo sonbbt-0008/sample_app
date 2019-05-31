@@ -20,12 +20,12 @@ gem "rails", "~> 5.2.3"
 gem "rails-controller-testing"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
-gem "sqlite3"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem "will_paginate", "3.1.7"
 
 group :development, :test do
+  gem "sqlite3"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end
 
